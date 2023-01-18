@@ -17,10 +17,12 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start:web": "craco start",
+    "build:web": "craco build",
+    "build:desk": "tsc -p electron/tsconfig.json",
+    "start:desk": "npm run build:desk && electron ./build/electron.js",
+    "test": "craco test",
+    "eject": "craco eject"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.0.0",
+    "electron": "^22.0.2"
   }
 }
