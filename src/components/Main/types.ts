@@ -1,4 +1,5 @@
-import type { Choice } from "@/components/Decision/Choice";
+import { IChoice } from "../Decision";
+import { ITimelineItem } from "../Timeline";
 
 export type StoryNodeType =
   | "chapter"
@@ -7,12 +8,11 @@ export type StoryNodeType =
   | "decision"
   | "reset";
 
-export interface IStoryNodeProps {
+export interface IStoryNode extends ITimelineItem {
   id: number;
   nextId?: number;
   soundId?: number;
   wait: number;
   type: StoryNodeType;
-  text: string;
-  choices?: Choice[];
+  choices?: IChoice[];
 }

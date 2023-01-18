@@ -1,0 +1,27 @@
+#choices {
+  display: flex;
+  justify-content: center;
+  column-gap: 1rem;
+  padding: 0 1.4rem 1.4rem;
+}
+
+.choice-container {
+  font-family: celticGaramond2;
+  color: var(--ft-weak-challenger-color);
+  background-color: var(--bg-weak-challenger-color);
+  padding: 0.25rem;
+  padding-left: 1rem;
+}
+
+.choice-container:hover {
+  background-color: var(--ft-strong-challenger-color);
+}
+
+.choice-title {
+  color: var(--bg-strong-challenger-color);
+}
+
+.choice-summary {
+  padding: 0.5rem;
+  letter-spacing: 0.14rem;
+}

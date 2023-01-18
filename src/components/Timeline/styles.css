@@ -1,0 +1,10 @@
+#timeline {
+  display: flex;
+  flex-direction: column;
+  width: 42rem;
+}
+
+#timeline > h1,
+h2 {
+  text-align: center;
+}

@@ -1,8 +1,7 @@
 import * as React from "react";
+import "./styles.css";
 
-interface IFooterProps {}
-
-const Footer: React.FunctionComponent<IFooterProps> = (props) => {
+const Footer: React.FunctionComponent<{}> = () => {
   return (
     <footer>
       <div id="credits">

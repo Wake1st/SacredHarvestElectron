@@ -1,6 +1,8 @@
 import { IChoice } from "./Choice";
 
-export interface IDecisionProps {
+export interface IDecision {
   text: string;
   choices: IChoice[];
 }
+
+export interface IDecisionProps extends IDecision {}
