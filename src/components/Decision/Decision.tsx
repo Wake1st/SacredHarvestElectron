@@ -1,13 +1,18 @@
 import * as React from "react";
 
-import Choice from "./Choice";
+import Choice, { IChoice } from "./Choice";
+import { IDecisionProps } from "./types";
 
-interface IDecisionProps {}
-
-const Decision: React.FunctionComponent<IDecisionProps> = (props) => {
+const Decision: React.FunctionComponent<IDecisionProps> = ({
+  text,
+  choices,
+}) => {
   return (
     <>
-      <Choice />
+      <h2>{text}</h2>
+      {choices.forEach((choice: IChoice) => (
+        <Choice {...choice} />
+      ))}
     </>
   );
 };
