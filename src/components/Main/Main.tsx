@@ -17,19 +17,18 @@ const Main = () => {
   >();
 
   useEffect(() => {
-    const { text, choices } = storyNode;
+    const { id, text, type, choices } = storyNode;
 
-    const newItem: ITimelineItem = { text: text };
-    setTimelineItems((oldItems) => [...oldItems, newItem]);
-
-    setCurrentDecision(
-      storyNode.type === "decision"
-        ? {
-            text: text,
-            choices: choices as IChoice[],
-          }
-        : undefined
-    );
+    if (type === "decision") {
+      setCurrentDecision({
+        text: text,
+        choices: choices as IChoice[],
+      });
+    } else {
+      const newItem: ITimelineItem = { text: text, id: id };
+      setTimelineItems((oldItems) => [...oldItems, newItem]);
+      setCurrentDecision(undefined);
+    }
   }, [storyNode]);
 
   const handleNextNode = () => {
@@ -37,6 +36,7 @@ const Main = () => {
       { id: storyNode.nextId ?? storyNode.id + 1 },
       storyNodes
     );
+    console.log(newStoryNode);
     setStoryNode(newStoryNode as IStoryNode);
   };
 

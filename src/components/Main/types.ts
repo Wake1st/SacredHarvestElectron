@@ -9,7 +9,6 @@ export type StoryNodeType =
   | "reset";
 
 export interface IStoryNode extends ITimelineItem {
-  id: number;
   nextId?: number;
   soundId?: number;
   wait: number;

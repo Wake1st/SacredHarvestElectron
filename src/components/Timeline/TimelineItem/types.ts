@@ -1,4 +1,5 @@
 export interface ITimelineItem {
+  id: number;
   text: string;
 }
 

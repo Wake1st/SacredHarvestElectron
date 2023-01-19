@@ -18,8 +18,8 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start:web": "craco start",
     "build:web": "craco build",
+    "start:web": "craco start",
     "build:desk": "tsc -p electron/tsconfig.json",
     "start:desk": "npm run build:desk && electron ./build/electron.js",
     "test": "craco test",

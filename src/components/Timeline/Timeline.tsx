@@ -8,7 +8,7 @@ const Timeline = ({ timelineItems }: ITimelineProps) => {
       <h1>Sacred Harvest</h1>
       <div id="timeline-items">
         {timelineItems.map((item: ITimelineItem) => (
-          <TimelineItem {...item} />
+          <TimelineItem key={item.id} {...item} />
         ))}
       </div>
     </div>
