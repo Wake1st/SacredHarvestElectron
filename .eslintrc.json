@@ -6,7 +6,6 @@
     "extends": [
         "airbnb",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommend"
     ],
     "overrides": [
     ],
