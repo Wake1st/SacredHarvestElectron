@@ -17,11 +17,11 @@
   background-color: var(--ft-strong-challenger-color);
 }
 
-.choice-title {
+.choice-container > h4 {
   color: var(--bg-strong-challenger-color);
 }
 
-.choice-summary {
+.choice-container > p {
   padding: 0.5rem;
   letter-spacing: 0.14rem;
 }

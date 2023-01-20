@@ -1,5 +1,5 @@
-import { ITimelineItem } from "./TimelineItem";
+import { TimelineItemDefinition } from "./TimelineItem";
 
 export interface ITimelineProps {
-  timelineItems: ITimelineItem[];
+  timelineItems: TimelineItemDefinition[];
 }

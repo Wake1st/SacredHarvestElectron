@@ -3,7 +3,7 @@ import { find } from "lodash/fp";
 
 import storyNodes from "@/data/storyNodes.json";
 
-import Timeline, { ITimelineItem } from "@/components/Timeline";
+import Timeline, { TimelineItemDefinition } from "@/components/Timeline";
 import Decision, { IDecision, IChoice } from "@/components/Decision";
 import { IStoryNode } from "./types";
 
@@ -11,13 +11,21 @@ const Main = () => {
   const [storyNode, setStoryNode] = useState<IStoryNode>(
     storyNodes[0] as IStoryNode
   );
-  const [timelineItems, setTimelineItems] = useState<ITimelineItem[]>([]);
+  const [timelineItems, setTimelineItems] = useState<TimelineItemDefinition[]>(
+    []
+  );
   const [currentDecision, setCurrentDecision] = useState<
     undefined | IDecision
   >();
 
   useEffect(() => {
-    const { id, text, type, choices } = storyNode;
+    const { 
+      id, 
+      text, 
+      type, 
+      choices, 
+      soundId 
+    } = storyNode;
 
     if (type === "decision") {
       setCurrentDecision({
@@ -25,7 +33,44 @@ const Main = () => {
         choices: choices as IChoice[],
       });
     } else {
-      const newItem: ITimelineItem = { text: text, id: id };
+      let newItem: TimelineItemDefinition;
+      switch (type) {
+        case "chapter":
+          newItem = {
+            id,
+            text,
+            classes: ["chapter", "fade-in-left"],
+            soundEffect: {
+              name: "boom",
+              volume: 0.3,
+            },
+          };
+          break;
+        case "narration":
+          newItem = {
+            id,
+            text,
+            classes: ["naration", "fade-in-down"],
+            soundEffect: {
+              name: "whispers",
+            },
+          };
+          break;
+        case "scripture":
+          newItem = {
+            id,
+            text,
+            classes: ["scripture", "fade-in"],
+            soundEffect: {
+              id: soundId,
+            },
+          };
+          break;
+        default:
+          console.error(`Cannot read type: ${type}`);
+          break;
+      }
+
       setTimelineItems((oldItems) => [...oldItems, newItem]);
       setCurrentDecision(undefined);
     }
@@ -36,7 +81,6 @@ const Main = () => {
       { id: storyNode.nextId ?? storyNode.id + 1 },
       storyNodes
     );
-    console.log(newStoryNode);
     setStoryNode(newStoryNode as IStoryNode);
   };
 

@@ -1,5 +1,5 @@
 import { IChoice } from "../Decision";
-import { ITimelineItem } from "../Timeline";
+import { ITimelineItemData } from "../Timeline";
 
 export type StoryNodeType =
   | "chapter"
@@ -8,7 +8,7 @@ export type StoryNodeType =
   | "decision"
   | "reset";
 
-export interface IStoryNode extends ITimelineItem {
+export interface IStoryNode extends ITimelineItemData {
   nextId?: number;
   soundId?: number;
   wait: number;

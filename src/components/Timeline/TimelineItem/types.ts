@@ -1,8 +1,19 @@
-export interface ITimelineItem {
+export interface ITimelineItemData {
   id: number;
   text: string;
 }
 
-export interface ITimelineItemProps extends ITimelineItem {}
+export interface ISoundEffect {
+  id?: number;
+  name?: string;
+  volume?: number;
+}
 
-export type TimelineItemDefinition = ITimelineItem;
+export interface ITimelineItemStyle {
+  classes: string[];
+  soundEffect: ISoundEffect;
+}
+
+export interface ITimelineItemProps extends ITimelineItemData {}
+
+export type TimelineItemDefinition = ITimelineItemData & ITimelineItemStyle;

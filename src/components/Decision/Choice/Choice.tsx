@@ -1,8 +1,13 @@
-import * as React from "react";
 import { IChoiceProps } from "./types";
+import "./styles.css";
 
-const Choice: React.FunctionComponent<IChoiceProps> = ({ name }) => {
-  return <>{name}</>;
+const Choice = ({ name, summary }: IChoiceProps) => {
+  return (
+    <div className="choice-container">
+      <h4>{name}</h4>
+      <p>{summary}</p>
+    </div>
+  );
 };
 
 export default Choice;

@@ -3,6 +3,6 @@
   width: 74rem;
 }
 
-#decision-title {
+#current-decision > h3 {
   text-align: center;
 }
