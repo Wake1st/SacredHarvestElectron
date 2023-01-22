@@ -18,6 +18,35 @@
   -webkit-animation: fadeIn 2.2s;
   animation: fadeIn 2.2s;
 }
+.fade-in-stay {
+  -webkit-animation: fadeIn 2.2s forwards;
+  animation: fadeIn 2.2s forwards;
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.fade-out {
+  -webkit-animation: fadeOut 2.2s;
+  animation: fadeOut 2.2s;
+}
+.fade-out-stay {
+  -webkit-animation: fadeOut 2.2s forwards;
+  animation: fadeOut 2.2s forwards;
+}
 
 @-webkit-keyframes fadeInLeft {
   0% {

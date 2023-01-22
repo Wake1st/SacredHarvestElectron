@@ -1,0 +1,16 @@
+#progress-story {
+  font-family: celticGaramond2;
+  color: var(--bg-strong-challenger-color);
+  background-color: var(--bg-weak-challenger-color);
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+#progress-story > h2 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+#progress-story:hover {
+  background-color: var(--ft-strong-challenger-color);
+}

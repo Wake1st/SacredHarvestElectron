@@ -6,7 +6,7 @@ import type { ITimelineProps } from './types';
 import './styles.css';
 
 const Timeline = ({ timelineItems }: ITimelineProps) => (
-  <div id="timeline" className="greater-border">
+  <div id="timeline" className="greater-border col-md">
     <h1>Sacred Harvest</h1>
     <div id="timeline-items">
       {timelineItems.map((item: ITimelineItemData) => (

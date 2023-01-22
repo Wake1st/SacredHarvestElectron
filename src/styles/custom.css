@@ -10,6 +10,14 @@
   border-width: 0.5rem;
 }
 
+.col-md {
+  width: 42rem;
+}
+
+.col-lg {
+  width: 74rem;
+}
+
 .chapter {
   background-color: var(--bg-strong-support-color);
   color: var(--ft-strong-support-color);
@@ -37,9 +45,4 @@
   overflow: hidden;
   opacity: 0;
   height: 0;
-}
-
-.progress-story {
-  margin-top: 2rem;
-  padding: 1rem;
 }

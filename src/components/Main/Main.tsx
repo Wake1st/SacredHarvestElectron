@@ -5,16 +5,16 @@ import storyNodes from '@/data/storyNodes.json';
 
 import Timeline from '@/components/Timeline';
 import type { TimelineItemDefinition } from '@/components/Timeline';
+import ProgressButton from '@/components/ProgressButton';
 import Decision from '@/components/Decision';
 import type { IDecision, IChoice } from '@/components/Decision';
 
 import type { IStoryNode } from './types';
 import './styles.css';
+import useShowButton from './_useShowButton';
 
 const Main = () => {
-  const [storyNode, setStoryNode] = useState<IStoryNode>(
-    storyNodes[0] as IStoryNode,
-  );
+  const [storyNode, setStoryNode] = useState<IStoryNode>();
   const [
     timelineItems,
     setTimelineItems,
@@ -25,6 +25,10 @@ const Main = () => {
   ] = useState<undefined | IDecision>();
 
   useEffect(() => {
+    if (!storyNode) {
+      return;
+    }
+
     const {
       id,
       text,
@@ -78,14 +82,24 @@ const Main = () => {
           break;
       }
 
-      setTimelineItems((oldItems) => [...oldItems, newItem]);
+      setTimelineItems((oldItems) => [
+        ...oldItems,
+        newItem,
+      ]);
+
       setCurrentDecision(undefined);
     }
   }, [storyNode]);
 
+  const [showButton] = useShowButton(!!currentDecision);
+
   const handleNextNode = () => {
     const newStoryNode = find(
-      { id: storyNode.nextId ?? storyNode.id + 1 },
+      {
+        id: storyNode
+          ? storyNode.nextId ?? storyNode.id + 1
+          : 0,
+      },
       storyNodes,
     );
     setStoryNode(newStoryNode as IStoryNode);
@@ -95,14 +109,10 @@ const Main = () => {
     <main>
       <Timeline timelineItems={timelineItems} />
 
-      <button
-        type="button"
-        id="progress-story"
-        className="choice-container"
+      <ProgressButton
+        show={showButton}
         onClick={handleNextNode}
-      >
-        Next
-      </button>
+      />
 
       {currentDecision && <Decision {...currentDecision} />}
     </main>
