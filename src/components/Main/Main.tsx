@@ -13,6 +13,7 @@ import type { IDecision, IChoice } from '@/components/Decision';
 import type { IStoryNode } from './types';
 import './styles.css';
 import useShowButton from './_useShowButton';
+import ScrollToBottom from '../ScrollToBottom';
 
 const Main = () => {
   const [storyNode, setStoryNode] = useState<IStoryNode>();
@@ -129,6 +130,10 @@ const Main = () => {
           {...currentDecision}
         />
       )}
+
+      <ScrollToBottom
+        text={storyNode?.text ?? currentDecision?.text!}
+      />
     </main>
   );
 };
