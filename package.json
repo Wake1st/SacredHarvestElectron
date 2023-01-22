@@ -2,6 +2,8 @@
   "name": "sher",
   "version": "0.1.0",
   "private": true,
+  "description": "An Electron React app for the Sacred Harvest game.",
+  "author": "Joel Wakefield",
   "dependencies": {
     "lodash": "^4.17.21",
     "react": "^18.2.0",
@@ -15,7 +17,9 @@
     "build:desk": "tsc -p electron/tsconfig.json",
     "start:desk": "npm run build:desk && electron ./build/electron.js",
     "test": "craco test",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "lint": "eslint *.js *.ts *.jsx *.tsx ./src",
+    "typecheck": "tsc --noEmit"
   },
   "browserslist": {
     "production": [
