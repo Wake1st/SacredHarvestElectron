@@ -119,15 +119,15 @@ const Main = () => {
     <main>
       <Timeline timelineItems={timelineItems} />
 
-      <ProgressButton
-        show={showButton}
-        onClick={handleNextNode}
-      />
-
-      {currentDecision && (
+      {currentDecision ? (
         <Decision
           onClick={handleChoice}
           {...currentDecision}
+        />
+      ) : (
+        <ProgressButton
+          show={showButton}
+          onClick={handleNextNode}
         />
       )}
 
