@@ -7,7 +7,11 @@ import Choice from './Choice';
 import type { IDecisionProps } from './types';
 import './styles.css';
 
-const Decision = ({ text, choices }: IDecisionProps) => {
+const Decision = ({
+  text,
+  choices,
+  onClick,
+}: IDecisionProps) => {
   const [animations] = useAnimate(
     text,
     ['fade-in-up'],
@@ -22,7 +26,11 @@ const Decision = ({ text, choices }: IDecisionProps) => {
       <h3>{text}</h3>
       <div id="choices">
         {choices.map((choice: IChoice) => (
-          <Choice key={choice.name} {...choice} />
+          <Choice
+            key={choice.name}
+            onClick={onClick}
+            {...choice}
+          />
         ))}
       </div>
     </div>

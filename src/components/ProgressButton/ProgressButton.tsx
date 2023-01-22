@@ -13,8 +13,9 @@ const ProgressButton = ({ show, onClick }: IProgressButtonProps) => {
   );
 
   return (
-    <button
-      type="button"
+    <div
+      role="button"
+      tabIndex={0}
       id="progress-story"
       className={`lesser-border col-md ${animations}`}
       onClick={onClick}
@@ -22,7 +23,7 @@ const ProgressButton = ({ show, onClick }: IProgressButtonProps) => {
       <h2>
         Next
       </h2>
-    </button>
+    </div>
   );
 };
 

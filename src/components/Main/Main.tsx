@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import type { MouseEvent } from 'react';
 import { find } from 'lodash/fp';
 
 import storyNodes from '@/data/storyNodes.json';
@@ -105,6 +106,14 @@ const Main = () => {
     setStoryNode(newStoryNode as IStoryNode);
   };
 
+  const handleChoice = (_: MouseEvent, nextId: number) => {
+    const newStoryNode = find(
+      { id: nextId ?? 0 },
+      storyNodes,
+    );
+    setStoryNode(newStoryNode as IStoryNode);
+  };
+
   return (
     <main>
       <Timeline timelineItems={timelineItems} />
@@ -114,7 +123,12 @@ const Main = () => {
         onClick={handleNextNode}
       />
 
-      {currentDecision && <Decision {...currentDecision} />}
+      {currentDecision && (
+        <Decision
+          onClick={handleChoice}
+          {...currentDecision}
+        />
+      )}
     </main>
   );
 };

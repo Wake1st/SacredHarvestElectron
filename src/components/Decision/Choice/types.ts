@@ -1,3 +1,5 @@
+import type { MouseEvent } from 'react';
+
 export interface Flock {
   faith: number;
   resolve: number;
@@ -16,4 +18,8 @@ export interface IChoice {
   consequences?: Consequence[];
 }
 
-export interface IChoiceProps extends IChoice {}
+export interface IOnChoiceSelection {
+  onClick: (event: MouseEvent, nextId: number) => void
+}
+
+export interface IChoiceProps extends IChoice, IOnChoiceSelection {}
