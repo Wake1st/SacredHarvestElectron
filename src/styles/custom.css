@@ -38,3 +38,8 @@
   opacity: 0;
   height: 0;
 }
+
+.progress-story {
+  margin-top: 2rem;
+  padding: 1rem;
+}

@@ -1,4 +1,4 @@
-import { IChoice } from "./Choice";
+import type { IChoice } from './Choice';
 
 export interface IDecision {
   text: string;

@@ -1,14 +1,12 @@
-import * as React from "react";
-import music from "@/assets/audio/ForbiddenNorth.mp3";
+import * as React from 'react';
+import music from '@/assets/audio/ForbiddenNorth.mp3';
+import subtitles from '@/assets/audio/ForbiddenNorth.vtt';
 
-interface IMusicProps {}
-
-const Music: React.FunctionComponent<IMusicProps> = (props) => {
-  return (
-    <audio id="bgMusic" autoPlay loop>
-      <source src={music} type="audio/mp3" />
-    </audio>
-  );
-};
+const Music = () => (
+  <audio id="bgMusic" autoPlay loop>
+    <track kind="captions" srcLang="en" src={subtitles} />
+    <source src={music} type="audio/mp3" />
+  </audio>
+);
 
 export default Music;

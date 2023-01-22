@@ -6,21 +6,6 @@ body {
   margin: 0;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 92vh;
-  overflow-x: clip;
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
 h1,
 h2,
 h3,

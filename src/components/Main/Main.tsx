@@ -1,72 +1,79 @@
-import { useEffect, useState } from "react";
-import { find } from "lodash/fp";
+import React, { useEffect, useState } from 'react';
+import { find } from 'lodash/fp';
 
-import storyNodes from "@/data/storyNodes.json";
+import storyNodes from '@/data/storyNodes.json';
 
-import Timeline, { TimelineItemDefinition } from "@/components/Timeline";
-import Decision, { IDecision, IChoice } from "@/components/Decision";
-import { IStoryNode } from "./types";
+import Timeline from '@/components/Timeline';
+import type { TimelineItemDefinition } from '@/components/Timeline';
+import Decision from '@/components/Decision';
+import type { IDecision, IChoice } from '@/components/Decision';
+
+import type { IStoryNode } from './types';
+import './styles.css';
 
 const Main = () => {
   const [storyNode, setStoryNode] = useState<IStoryNode>(
-    storyNodes[0] as IStoryNode
+    storyNodes[0] as IStoryNode,
   );
-  const [timelineItems, setTimelineItems] = useState<TimelineItemDefinition[]>(
-    []
-  );
-  const [currentDecision, setCurrentDecision] = useState<
-    undefined | IDecision
-  >();
+  const [
+    timelineItems,
+    setTimelineItems,
+  ] = useState<TimelineItemDefinition[]>([]);
+  const [
+    currentDecision,
+    setCurrentDecision,
+  ] = useState<undefined | IDecision>();
 
   useEffect(() => {
-    const { 
-      id, 
-      text, 
-      type, 
-      choices, 
-      soundId 
+    const {
+      id,
+      text,
+      type,
+      choices,
+      soundId,
     } = storyNode;
 
-    if (type === "decision") {
+    if (type === 'decision') {
       setCurrentDecision({
-        text: text,
+        text,
         choices: choices as IChoice[],
       });
     } else {
       let newItem: TimelineItemDefinition;
       switch (type) {
-        case "chapter":
+        case 'chapter':
           newItem = {
             id,
             text,
-            classes: ["chapter", "fade-in-left"],
+            classes: ['chapter', 'fade-in-left'],
             soundEffect: {
-              name: "boom",
+              name: 'boom',
               volume: 0.3,
             },
           };
           break;
-        case "narration":
+        case 'narration':
           newItem = {
             id,
             text,
-            classes: ["naration", "fade-in-down"],
+            classes: ['naration', 'fade-in-down'],
             soundEffect: {
-              name: "whispers",
+              name: 'whispers',
             },
           };
           break;
-        case "scripture":
+        case 'scripture':
           newItem = {
             id,
             text,
-            classes: ["scripture", "fade-in"],
+            classes: ['scripture', 'fade-in'],
             soundEffect: {
               id: soundId,
             },
           };
           break;
         default:
+          // eslint-disable-next-line no-console -- it's here for debuggins
           console.error(`Cannot read type: ${type}`);
           break;
       }
@@ -79,7 +86,7 @@ const Main = () => {
   const handleNextNode = () => {
     const newStoryNode = find(
       { id: storyNode.nextId ?? storyNode.id + 1 },
-      storyNodes
+      storyNodes,
     );
     setStoryNode(newStoryNode as IStoryNode);
   };
@@ -88,7 +95,14 @@ const Main = () => {
     <main>
       <Timeline timelineItems={timelineItems} />
 
-      <button onClick={handleNextNode}>Next</button>
+      <button
+        type="button"
+        id="progress-story"
+        className="choice-container"
+        onClick={handleNextNode}
+      >
+        Next
+      </button>
 
       {currentDecision && <Decision {...currentDecision} />}
     </main>

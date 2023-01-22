@@ -1,8 +1,10 @@
-import { ITimelineItemProps } from "./types";
-import "./styles.css";
+import React from 'react';
 
-const StoryNode = ({ text }: ITimelineItemProps) => {
-  return <div>{text}</div>;
-};
+import type { ITimelineItemProps } from './types';
+import './styles.css';
+
+const StoryNode = ({
+  text,
+}: ITimelineItemProps) => <div>{text}</div>;
 
 export default StoryNode;

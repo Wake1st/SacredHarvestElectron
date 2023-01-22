@@ -1,2 +1,2 @@
-export { default } from "./Timeline";
-export type { ITimelineItemData, TimelineItemDefinition } from "./TimelineItem";
+export { default } from './Timeline';
+export type { ITimelineItemData, TimelineItemDefinition } from './TimelineItem';

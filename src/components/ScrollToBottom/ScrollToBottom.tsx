@@ -1,16 +1,14 @@
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from 'react';
 
-interface IScrollToBottomProps {
-  text: string;
-}
+import type { IScrollToBottomProps } from './types';
 
-const ScrollToBottom: React.FunctionComponent<IScrollToBottomProps> = ({
+const ScrollToBottom = ({
   text,
-}) => {
+}: IScrollToBottomProps) => {
   const textEndRef = useRef<null | HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    textEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    textEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => scrollToBottom(), [text]);
