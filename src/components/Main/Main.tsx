@@ -32,11 +32,9 @@ const Main = () => {
     }
 
     const {
-      id,
       text,
       type,
       choices,
-      soundId,
     } = storyNode;
 
     if (type === 'decision') {
@@ -45,48 +43,9 @@ const Main = () => {
         choices: choices as IChoice[],
       });
     } else {
-      let newItem: TimelineItemDefinition;
-      switch (type) {
-        case 'chapter':
-          newItem = {
-            id,
-            text,
-            classes: ['chapter', 'fade-in-left'],
-            soundEffect: {
-              name: 'boom',
-              volume: 0.3,
-            },
-          };
-          break;
-        case 'narration':
-          newItem = {
-            id,
-            text,
-            classes: ['naration', 'fade-in-down'],
-            soundEffect: {
-              name: 'whispers',
-            },
-          };
-          break;
-        case 'scripture':
-          newItem = {
-            id,
-            text,
-            classes: ['scripture', 'fade-in'],
-            soundEffect: {
-              id: soundId,
-            },
-          };
-          break;
-        default:
-          // eslint-disable-next-line no-console -- it's here for debuggins
-          console.error(`Cannot read type: ${type}`);
-          break;
-      }
-
       setTimelineItems((oldItems) => [
         ...oldItems,
-        newItem,
+        storyNode,
       ]);
 
       setCurrentDecision(undefined);

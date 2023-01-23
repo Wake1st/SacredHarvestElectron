@@ -1,0 +1,5 @@
+.chapter {
+  background-color: var(--bg-strong-support-color);
+  color: var(--ft-strong-support-color);
+  padding: 0.5rem;
+}

@@ -18,29 +18,6 @@
   width: 74rem;
 }
 
-.chapter {
-  background-color: var(--bg-strong-support-color);
-  color: var(--ft-strong-support-color);
-  padding: 0.5rem;
-}
-
-.naration {
-  padding: 0.25rem;
-  letter-spacing: 0.06rem;
-  font-size: 24px;
-  line-height: 1.4;
-}
-
-.scripture {
-  font-family: celticGaramond2;
-  background-color: var(--bg-weak-challenger-color);
-  color: var(--ft-weak-challenger-color);
-  padding: 1rem;
-  font-size: 16px;
-  line-height: 1.4;
-  letter-spacing: 0.2rem;
-}
-
 .hidden {
   overflow: hidden;
   opacity: 0;

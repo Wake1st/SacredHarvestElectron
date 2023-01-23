@@ -1,3 +1,5 @@
+import type { IStoryNode } from '@/components/Main/types';
+
 export interface ITimelineItemData {
   id: number;
   text: string;
@@ -14,6 +16,7 @@ export interface ITimelineItemStyle {
   soundEffect: ISoundEffect;
 }
 
-export interface ITimelineItemProps extends ITimelineItemData {}
+// export type TimelineItemDefinition = ITimelineItemData & ITimelineItemStyle;
+export type TimelineItemDefinition = IStoryNode;
 
-export type TimelineItemDefinition = ITimelineItemData & ITimelineItemStyle;
+export interface ITimelineItemProps extends TimelineItemDefinition {}

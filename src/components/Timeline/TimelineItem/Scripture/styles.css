@@ -1,0 +1,9 @@
+.scripture {
+  font-family: celticGaramond2;
+  background-color: var(--bg-weak-challenger-color);
+  color: var(--ft-weak-challenger-color);
+  padding: 1rem;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.2rem;
+}
