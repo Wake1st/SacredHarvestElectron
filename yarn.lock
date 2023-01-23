@@ -4146,10 +4146,10 @@
   "resolved" "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.284.tgz"
   "version" "1.4.284"
 
-"electron@^22.0.2":
-  "integrity" "sha512-NdJlA2+FMgDJBhQFKMPyWJY8ng/tWpFlrRsW2JkZgSzYPXOnIu9muO3b83YHGoDn+GTyS8ghPsgcAwPMXtxirA=="
-  "resolved" "https://registry.npmjs.org/electron/-/electron-22.0.2.tgz"
-  "version" "22.0.2"
+"electron@^22.0.3":
+  "integrity" "sha512-eETrJTINTzlXgQrnJSrKiF2Xdt5EHpxZ6Kk+WUjFCE0zUztdVm+hrngUecqhj8TPFlYScTANzPwRwUIjOChl+g=="
+  "resolved" "https://registry.npmjs.org/electron/-/electron-22.0.3.tgz"
+  "version" "22.0.3"
   dependencies:
     "@electron/get" "^2.0.0"
     "@types/node" "^16.11.26"
