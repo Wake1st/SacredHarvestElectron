@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import music from '@/assets/audio/ForbiddenNorth.mp3';
 import subtitles from '@/assets/audio/ForbiddenNorth.vtt';
 
