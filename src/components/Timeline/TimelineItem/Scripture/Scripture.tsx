@@ -1,16 +1,23 @@
 import * as React from 'react';
 
-import type { IScriptureProps } from './types';
+import chants from '@/data/chants.json';
+
+import type { IChants, IScriptureProps } from './types';
 import './styles.css';
 
-// soundEffect: {
-//   id: soundId,
-// },
+const Scripture = ({ text, nextId }: IScriptureProps) => {
+  const chant = chants.find(({ id }: IChants) => id === nextId);
 
-const Scripture = ({ text }: IScriptureProps) => (
-  <div className="scripture fade-in">
-    {text}
-  </div>
-);
+  return (
+    <>
+      <div className="scripture fade-in">
+        {text}
+      </div>
+      <audio autoPlay src={`@/assets/audio/wav/chants/${chant?.file}`}>
+        <track kind="captions" src="" />
+      </audio>
+    </>
+  );
+};
 
 export default Scripture;

@@ -7,6 +7,7 @@ import Naration from './Naration';
 import Scripture from './Scripture';
 
 const StoryNode = ({
+  nextId,
   type,
   text,
 }: ITimelineItemProps) => {
@@ -16,7 +17,7 @@ const StoryNode = ({
     case 'narration':
       return <Naration text={text} />;
     case 'scripture':
-      return <Scripture text={text} />;
+      return <Scripture text={text} nextId={nextId!} />;
     default:
       // eslint-disable-next-line no-console -- it's here for debuggins
       console.error(`Cannot read type: ${type}`);
