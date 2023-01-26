@@ -7,10 +7,19 @@ export default (
   falseClasses: string[],
 ): UseAnimate => {
   const [animations, setAnimation] = useState<string[]>([]);
+  const [pastConditional, setPastConditional] = useState();
 
   useEffect(() => {
-    setAnimation(conditional ? trueClasses : falseClasses);
-  }, [conditional, trueClasses, falseClasses]);
+    if (conditional !== pastConditional) {
+      setAnimation(conditional ? trueClasses : falseClasses);
+      setPastConditional(conditional);
+    }
+  }, [
+    pastConditional,
+    conditional,
+    trueClasses,
+    falseClasses,
+  ]);
 
   return [animations];
 };

@@ -9,11 +9,10 @@ import type { TimelineItemDefinition } from '@/components/Timeline';
 import ProgressButton from '@/components/ProgressButton';
 import Decision from '@/components/Decision';
 import type { IDecision, IChoice } from '@/components/Decision';
+import ScrollToBottom from '@/components/ScrollToBottom';
 
 import type { IStoryNode } from './types';
 import './styles.css';
-import useShowButton from './_useShowButton';
-import ScrollToBottom from '../ScrollToBottom';
 
 const Main = () => {
   const [storyNode, setStoryNode] = useState<IStoryNode>();
@@ -52,8 +51,6 @@ const Main = () => {
     }
   }, [storyNode]);
 
-  const [showButton] = useShowButton(!!currentDecision);
-
   const handleNextNode = () => {
     const newStoryNode = find(
       {
@@ -85,7 +82,7 @@ const Main = () => {
         />
       ) : (
         <ProgressButton
-          show={showButton}
+          show={!currentDecision}
           onClick={handleNextNode}
         />
       )}
