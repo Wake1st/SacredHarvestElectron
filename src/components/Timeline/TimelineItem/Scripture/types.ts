@@ -1,6 +1,6 @@
 export interface IScriptureProps {
   text: string;
-  nextId: number;
+  soundId: number;
 }
 
 export interface IChants {
