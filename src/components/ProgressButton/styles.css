@@ -2,11 +2,11 @@
   font-family: celticGaramond2;
   color: var(--bg-strong-challenger-color);
   background-color: var(--bg-weak-challenger-color);
-  margin-top: 2rem;
+  margin: 2rem 0;
   padding: 1rem;
 }
 
-#progress-story > h2 {
+#progress-story>h2 {
   margin-block-start: 0;
   margin-block-end: 0;
 }

@@ -8,12 +8,20 @@ const ScrollToBottom = ({
   const textEndRef = useRef<null | HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    textEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'auto',
+    });
+    // textEndRef.current?.scrollIntoView({
+    //   behavior: 'smooth',
+    // });
   };
 
   useEffect(() => scrollToBottom(), [text]);
 
-  return <div ref={textEndRef} />;
+  return (
+    <div ref={textEndRef} />
+  );
 };
 
 export default ScrollToBottom;
