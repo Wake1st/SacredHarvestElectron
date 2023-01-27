@@ -2,6 +2,8 @@ import React from 'react';
 
 import useAnimate from '@/hooks/useAnimate';
 
+import gong from '@/assets/audio/wav/Gong.wav';
+
 import type { IChoice } from './Choice';
 import Choice from './Choice';
 import type { IDecisionProps } from './types';
@@ -33,6 +35,10 @@ const Decision = ({
           />
         ))}
       </div>
+
+      <audio autoPlay src={gong}>
+        <track kind="captions" src="" />
+      </audio>
     </div>
   );
 };
