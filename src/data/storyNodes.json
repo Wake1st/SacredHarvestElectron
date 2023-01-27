@@ -1018,18 +1018,21 @@
   },
   {
     "id": 1000,
+    "nextId": -1,
     "wait": 1,
     "type": "chapter",
     "text": "Nights Growing Longer"
   },
   {
     "id": 4000,
+    "nextId": -1,
     "wait": 1,
     "type": "chapter",
     "text": "Nights Growing Longer"
   },
   {
     "id": 7000,
+    "nextId": -1,
     "wait": 1,
     "type": "chapter",
     "text": "Nights Growing Longer"
@@ -1037,7 +1040,14 @@
   {
     "id": -1,
     "wait": 60,
-    "type": "reset",
-    "text": "You have served well."
+    "type": "decision",
+    "text": "You have served well.",
+    "choices": [
+      {
+        "nextId": 0,
+        "name": "Serve Again",
+        "summary": "... and reap the harvest?"
+      }
+    ]
   }
 ]

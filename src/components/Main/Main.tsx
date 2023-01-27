@@ -31,6 +31,7 @@ const Main = () => {
     }
 
     const {
+      id,
       text,
       type,
       choices,
@@ -42,10 +43,14 @@ const Main = () => {
         choices: choices as IChoice[],
       });
     } else {
-      setTimelineItems((oldItems) => [
-        ...oldItems,
-        storyNode,
-      ]);
+      if (id === 0) {
+        setTimelineItems([storyNode]);
+      } else {
+        setTimelineItems((oldItems) => [
+          ...oldItems,
+          storyNode,
+        ]);
+      }
 
       setCurrentDecision(undefined);
     }
@@ -68,6 +73,7 @@ const Main = () => {
       { id: nextId ?? 0 },
       storyNodes,
     );
+
     setStoryNode(newStoryNode as IStoryNode);
   };
 
